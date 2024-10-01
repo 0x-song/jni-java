@@ -15,6 +15,8 @@ public class NativeMethod {
 
 
     public static void main(String[] args) {
+        //load和loadLibrary的区别在于load填入绝对路径；loadLibrary从java.library.path环境变量处读取
+        System.load("E:\\WD\\diy\\JNIDemoJava\\c++\\libJNIDemoC.dll");
         String hello = NativeMethod.hello();
         System.out.println(hello);
     }
