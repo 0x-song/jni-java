@@ -11,13 +11,27 @@ package com.sz.jvm;
  */
 public class NativeMethod {
 
+    //利用jni来获取number的值，然后再次赋值
+    public int num = 90;
+
     public static native String hello();
 
+    public native void world();
+
+    public native void field();
 
     public static void main(String[] args) {
         //load和loadLibrary的区别在于load填入绝对路径；loadLibrary从java.library.path环境变量处读取
         System.load("E:\\WD\\diy\\JNIDemoJava\\c++\\libJNIDemoC.dll");
         String hello = NativeMethod.hello();
         System.out.println(hello);
+
+
+//        new NativeMethod().world();
+
+
+        new NativeMethod().field();
+
+        System.out.println("java:" + new NativeMethod().num);
     }
 }
